@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1 class="is-size-1 has-text-centered">Order Details</h1>
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/orders">Orders</a></li>
+    <li class="is-active"><a href="/orders/show" aria-current="page">Order Details</a></li>
+  </ul>
+</nav>
+
+<h2>@Model["order"].Description</h2>
+<h3>Vendor: @Model["vendor"].Name</h3>
+
+<a href='/vendors/@Model["vendor"].Id/order/new'>Add another order</a>
+<a href='/vendors'>View all Vendors</a>

@@ -13,13 +13,21 @@
 </nav>
 
 <form action="/vendors" method="post">
-  <div class="field is-grouped">
-    <div class="control is-expanded">
-      <input id="vendorName" name="vendorName" class="input" type="text" placeholder="Vendor Name">
+  <div class="control is-expanded">
+    <div class="column">
+      <div class="field is-grouped">
+        <div class="column is-one-third">
+          <input id="vendorName" name="vendorName" class="input" type="text" placeholder="Vendor Name">
+        </div>
+        <div class="column is-one-third">
+          <input id="vendorDescription" name="vendorDescription" class="input" type="text"
+            placeholder="Vendor Description">
+        </div>
+        <button type="submit" class="button is-success is-outlined">+ Add Vendor</button>
+      </div>
     </div>
-      <button type="submit" class="button is-success is-outlined">+ Add Vendor</button>
   </div>
 </form>
 
 @* <p><a href="/">Back home</a></p>
-<p><a href="/vendors">Back to vendors.</a></p> *@
+  <p><a href="/vendors">Back to vendors.</a></p> *@
