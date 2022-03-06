@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vendor and Order List | Pierre's Bake Shoppe</title>
-    <link rel="stylesheet" href="~/css/bulma.css">
-    <link rel="stylesheet" href="~/css/styles.css">
-  </head>
-  <body>
-  <section class="section">
-    <div class="container">
-      @RenderBody()
-      @await Html.PartialAsync("Footer")
+ <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendor and Order List | Pierre's Bake Shoppe</title>
+  <link rel="stylesheet" href="~/css/bulma.css">
+  <link rel="stylesheet" href="~/css/styles.css">
+ </head>
+<body>
+ <div id="page-container">
+   <div id="content-wrap">
+    <section class="section">
+      <div class="container">
+        @RenderBody()
+      </div>
+    </section>
+   </div>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        Footer things go here.
+      </p>
     </div>
-  </section>
-  </body>
+  </footer>
+ </div>
+</body>
 </html>

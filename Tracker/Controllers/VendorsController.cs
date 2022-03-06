@@ -1,59 +1,57 @@
-using System.Collections.Generic;
 using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using Tracker.Models;
 
-namespace ToDoList.Controllers
+namespace Tracker.Controllers
 {
-  public class CategoriesController : Controller
+  public class VendorsController : Controller
   {
 
-    [HttpGet("/categories")]
+    [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Category> allCategories = Category.GetAll();
-      return View(allCategories);
+      List<Vendor> allVendors = Vendor.GetAll();
+      return View(allVendors);
     }
 
-    [HttpGet("/categories/new")]
+    [HttpGet("/vendors/new")]
     public ActionResult New()
     {
       return View();
     }
 
-    [HttpPost("/categories")]
-    public ActionResult Create(string categoryName)
+    [HttpPost("/vendors")]
+    public ActionResult Create(string vendorName)
     {
-      Category newCategory = new Category(categoryName);
+      Vendor newVendor = new Vendor(vendorName);
       return RedirectToAction("Index");
     }
 
-    [HttpGet("/categories/{id}")]
-    public ActionResult Show(int id)
-    {
-      Dictionary<string, object> model = new Dictionary<string, object>();
-      Category selectedCategory = Category.Find(id);
-      List<Item> categoryItems = selectedCategory.Items;
-      model.Add("category", selectedCategory);
-      model.Add("items", categoryItems);
-      return View(model);
-    }
-
+    // [HttpGet("/vendors/{id}")]
+    // public ActionResult Show(int id)
+    // {
+    //   Dictionary<string, object> model = new Dictionary<string, object>();
+    //   Vendor selectedVendor = Vendor.Find(id);
+    //   List<Order> vendorItems = selectedVendor.Orders;
+    //   model.Add("vendor", selectedVendor);
+    //   model.Add("orders", vendorOrders);
+    //   return View(model);
+    // }
 
     // This one creates new Items within a given Category, not new Categories:
-
-    [HttpPost("/categories/{categoryId}/items")]
-    public ActionResult Create(int categoryId, string itemDescription)
-    {
-      Dictionary<string, object> model = new Dictionary<string, object>();
-      Category foundCategory = Category.Find(categoryId);
-      Item newItem = new Item(itemDescription);
-      foundCategory.AddItem(newItem);
-      List<Item> categoryItems = foundCategory.Items;
-      model.Add("items", categoryItems);
-      model.Add("category", foundCategory);
-      return View("Show", model);
-    }
+    // [HttpPost("/vendors/{vendorId}/orders")]
+    // public ActionResult Create(int vendorId, string orderDescription)
+    // {
+    //   Dictionary<string, object> model = new Dictionary<string, object>();
+    //   Vendor foundVendor = Vendor.Find(vendorId);
+    //   Order newOrder = new Order(orderDescription);
+    //   foundVendor.AddOrder(newOrder);
+    //   List<Order> vendorOrders = foundVendor.Orders;
+    //   model.Add("orders", vendorOrders);
+    //   model.Add("vendor", foundVendor);
+    //   return View("Show", model);
+    // }
 
   }
 }

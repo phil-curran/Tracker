@@ -5,19 +5,19 @@ using Tracker.Models;
 
 namespace Tracker.Models
 {
-  public class Category
+  public class Vendor
   {
-    private static List<Category> _instances = new List<Category> {};
+    private static List<Vendor> _instances = new List<Vendor> {};
     public string Name { get; set; }
     public int Id { get; }
-    public List<Item> Items { get; set; }
+    public List<Vendor> Vendors { get; set; }
 
-    public Category(string categoryName)
+    public Vendor(string vendorName)
     {
-      Name = categoryName;
+      Name = vendorName;
       _instances.Add(this);
       Id = _instances.Count;
-      Items = new List<Item>{};
+      // Orders = new List<Order>{};
     }
 
     public static void ClearAll()
@@ -25,20 +25,20 @@ namespace Tracker.Models
       _instances.Clear();
     }
 
-    public static List<Category> GetAll()
+    public static List<Vendor> GetAll()
     {
       return _instances;
     }
 
-    public static Category Find(int searchId)
+    public static Vendor Find(int searchId)
     {
       return _instances[searchId-1];
     }
 
-    public void AddItem(Item item)
-    {
-      Items.Add(item);
-    }
+    // public void AddItem(Item item)
+    // {
+    //   Items.Add(item);
+    // }
 
   }
 }

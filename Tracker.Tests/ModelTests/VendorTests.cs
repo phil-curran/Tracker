@@ -4,9 +4,9 @@ using Tracker.Models;
 
 namespace Tracker.Tests
 {
-  [TestClass]
-  public class VendorTests : IDisposable
-  { 
-  }
+  // [TestClass]
+  // public class VendorTests : IDisposable
+  // { 
+  // }
 
 }

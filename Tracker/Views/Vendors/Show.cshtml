@@ -2,17 +2,16 @@
   Layout = "_Layout";
 }
 
-@using ToDoList.Models;
+@using Tracker.Models;
 
-<h3>Here are all the items in this category:</h3>
+<h1 class="is-size-1 has-text-centered">Vendor Detail:</h1>
 
-<ol>
-@foreach (Item item in @Model["items"])
-{
-  <li><a href='/categories/@Model["category"].Id/items/@item.Id'>@item.Description</a></li>
-}
-</ol>
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/vendors">Vendor List</a></li>
+    <li class="is-active"><a href="/vendors/show" aria-current="page">Vendor Detail</a></li>
+  </ul>
+</nav>
 
-<p><a href='/categories/@Model["category"].Id/items/new'>Add a new item</a></p>
-<p><a href='/categories'>Return to category list</a></p>
-<p><a href='/'>Return to Main Page</a></p>
+<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
