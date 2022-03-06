@@ -4,7 +4,7 @@
 
 @using Tracker.Models;
 
-<h1 class="is-size-1 has-text-centered">Vendor Detail:</h1>
+<h1 class="is-size-1 has-text-centered">Vendor Detail</h1>
 
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
@@ -14,4 +14,24 @@
   </ul>
 </nav>
 
-<p><a href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th style="width:10%;">ID#:</th>
+      <th style="width:40%;">Name:</th>
+      <th style="width:40%;">Description:</th>
+      <th style="width:10%;">Orders:</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+      <td>@Model["vendor"].Id</td>
+      <td>@Model["vendor"].Name</td>
+      <td>@Model["vendor"].Description</td>
+      <td> - </td>
+    </tr>
+  </tbody>
+</table>
+
+<p><a class="button is-success is-outlined" href='/vendors/@Model["vendor"].Id/orders/new'>Add a new order</a></p>

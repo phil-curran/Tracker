@@ -2,11 +2,41 @@
   Layout = "_Layout";
 }
 
-<h1>Add a new order to @Model.Name</h1>
+<h3 class="is-size-3">Add a new order to @Model.Name:</h3>
+
+<nav class="breadcrumb" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/vendors">Vendors</a></li>
+    <li class="is-active"><a href="/orders/new" aria-current="page">Add Order</a></li>
+  </ul>
+</nav>
 
 <form action="/vendors/@Model.Id/orders" method="post">
-  <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
-  <label for="orderDescription">Order Description</label>
-  <input id="orderDescription" name="orderDescription" type="text">
-  <button type='submit'>Add Order</button>
+  <div class="columns is-vcentered orderForm is-grouped">
+    <input id="vendorId" name="vendorId" type="hidden" value="@Model.Id">
+    <div class="column">
+      <label for="orderTitle">Order Title:</label>
+      <input class="input" id="orderTitle" name="orderTitle" type="text">
+    </div>
+    <div class="column">
+      <label for="orderDescription">Order Description:</label>
+      <input class="input" id="orderDescription" name="orderDescription" type="text">
+    </div>
+    <div class="column">
+      <label for="orderPrice">Order Price:</label>
+      <input class="input" id="orderPrice" name="orderPrice" type="text">
+    </div>
+    <div class="column">
+      <label for="orderDate">Order Date:</label>
+      <input class="input" id="orderDate" name="orderDate" type="text">
+    </div>
+    <div class="column">
+      <label for="orderDate">Order Notes:</label>
+      <input class="input" id="orderNotes" name="orderNotes" type="text">
+    </div>
+    <div class="column">
+      <button class="button is-success is-outlined" type='submit'>+ Add Order</button>
+    </div>
+  </div>
 </form>

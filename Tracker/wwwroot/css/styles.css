@@ -11,7 +11,8 @@ footer {
   height: 3rem;            /* Footer height */
 }
 
-table {
+table, 
+.orderForm {
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -21,4 +22,8 @@ table {
   margin-bottom: 25px;
   margin-right: auto;
   margin-left: auto;
+}
+
+button {
+  margin: 12px;
 }

@@ -2,6 +2,8 @@
   Layout = "_Layout";
 }
 
+@using Tracker.Models;
+
 <h1 class="is-size-1 has-text-centered">Order Details</h1>
 
 <nav class="breadcrumb" aria-label="breadcrumbs">
@@ -12,8 +14,30 @@
   </ul>
 </nav>
 
-<h2>@Model["order"].Description</h2>
-<h3>Vendor: @Model["vendor"].Name</h3>
+<table class="table is-bordered is-striped is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th style="width:5%;">ID#:</th>
+      <th style="width:5%;">Vendor:</th>
+      <th style="width:15%;">Title:</th>
+      <th style="width:15%;">Description:</th>
+      <th style="width:10%;">Price:</th>
+      <th style="width:10%;">Date:</th>
+      <th style="width:10%;">Notes:</th>
+    </tr>
+  </thead>
+  <tbody>
 
-<a href='/vendors/@Model["vendor"].Id/order/new'>Add another order</a>
-<a href='/vendors'>View all Vendors</a>
+    <tr>
+      <td>@Model["order"].Description</td>
+      <td>@Model["order"].Title</td>
+      <td>@Model["order"].Description</td>
+      <td>@Model["order"].Price</td>
+      <td>@Model["order"].Date</td>
+      <td>@Model["order"].Notes</td>
+    </tr>
+  </tbody>
+</table>
+
+<a class="button is-success is-outlined" href='/vendors/@Model["vendor"].Id/order/new'>+ Add another order</a>
+<a class="button is-success is-outlined" href='/vendors'>View all Vendors</a>
