@@ -20,36 +20,37 @@ namespace Tracker.Tests
     {
       // Arrange
       Vendor newVendor = new Vendor("test name", "test description");
-
       // Act
-
       // Assert
       Assert.AreEqual(typeof(Vendor), newVendor.GetType());
-
     }
 
-    // test List<Order> GetAll()
+    // test List<Vendor> GetAll()
     [TestMethod]
-    public void Test1()
+    public void GetAllVendors()
     {
       // Arrange
-
+      Vendor.ClearAll();
+      Vendor newVendorOne = new Vendor("test name 1", "test description 1");
+      Vendor newVendorTwo = new Vendor("test name 2", "test description 2");
       // Act
-
+      List<Vendor> newList = new List<Vendor> { newVendorOne, newVendorTwo };
+      List<Vendor> result = Vendor.GetAll();
       // Assert
-
+      CollectionAssert.AreEquivalent(newList, result);
     }
 
-    // test List<Order> GetAll()
+    // test Vendor Find(int searchId)
     [TestMethod]
-    public void Test2()
+    public void FindOrGetVendorID()
     {
       // Arrange
-
+      Vendor.ClearAll();
+      Vendor newVendorOne = new Vendor("test name 1", "test description 1");
       // Act
-
+      Vendor result = Vendor.Find(1);
       // Assert
-
+      Assert.AreEqual(result.Name, newVendorOne.Name);
     }
 
   }
