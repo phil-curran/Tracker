@@ -79,10 +79,14 @@ namespace Tracker.Tests
     public void TestName3()
     {
       // Arrange
-
+      Order.ClearAll();
+      Order newOrder = new Order("test order 1", "test description 1", 100, "01/01/2020", "test notes 1");
       // Act
+      int orderId = newOrder.Id + 1;
+      int testOrderId = 1;
 
       // Assert
+      Assert.AreEqual(orderId, testOrderId);
     }
 
   }
