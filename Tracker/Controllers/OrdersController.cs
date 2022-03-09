@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using Tracker.Models;
@@ -9,11 +8,20 @@ namespace Tracker.Controllers
   {
 
     [HttpGet("/orders")]
-    public ActionResult Show()
+    public ActionResult Index()
     {
-      return View();
+      List<Order> allOrders = Order.GetAll();
+      return View(allOrders);
     }
-    
+
+    [HttpPost("/orders")]
+    public ActionResult Create(string title, string description, int price, string date, string notes)
+    {
+      Order newOrder = new Order(title, description, price, date, notes);
+      return RedirectToAction("Index");
+    }
+
+
     [HttpGet("/vendors/{vendorId}/orders/new")]
     public ActionResult New(int vendorId)
     {

@@ -22,19 +22,17 @@
   <thead>
     <tr>
       <th style="width:10%;">ID#:</th>
-      <th style="width:40%;">Name:</th>
-      <th style="width:40%;">Description:</th>
-      <th style="width:10%;">Orders:</th>
+      <th style="width:45%;">Name:</th>
+      <th style="width:45%;">Description:</th>
     </tr>
   </thead>
   <tbody>
     @foreach (Vendor vendor in Model)
     {
       <tr>
-        <td><a href='/vendors/@vendor.Id'>@vendor.Id</a></td>
+        <td>@vendor.Id</td>
         <td><a href='/vendors/@vendor.Id'>@vendor.Name</a></td>
         <td>@vendor.Description</td>
-        <td>Orders: 0</td>
       </tr>
     }
   </tbody>

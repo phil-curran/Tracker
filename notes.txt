@@ -1,3 +1,11 @@
 Category / Categories = Vendors
 Item / Items = Orders
 
+INDEX
+
+/vendors -> Views/Vendors/Index
+/vendors/new -> Views/Vendors/New
+
+
+SHOW is actually vendor detail
+SHOW is probably also order detail

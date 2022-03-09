@@ -4,13 +4,13 @@
 
 @using Tracker.Models;
 
-<h1 class="is-size-1 has-text-centered">Vendor Detail</h1>
+<h1 class="is-size-1 has-text-centered">Order Detail</h1>
 
 <nav class="breadcrumb" aria-label="breadcrumbs">
   <ul>
     <li><a href="/">Home</a></li>
     <li><a href="/vendors">Vendor List</a></li>
-    <li class="is-active"><a href="/vendors/show" aria-current="page">Vendor Detail</a></li>
+    <li class="is-active"><a href="/vendors/show" aria-current="page">Order Detail</a></li>
   </ul>
 </nav>
 
@@ -18,19 +18,27 @@
   <thead>
     <tr>
       <th style="width:10%;">ID#:</th>
-      <th style="width:40%;">Name:</th>
-      <th style="width:40%;">Description:</th>
-      <th style="width:10%;">Orders:</th>
+      <th style="width:20%;">Title:</th>
+      <th style="width:35%;">Description:</th>
+      <th style="width:10%;">Price:</th>
+      <th style="width:10%;">Date:</th>
+      <th style="width:10%;">Notes:</th>
     </tr>
   </thead>
   <tbody>
 
-    <tr>
-      <td>@Model["vendor"].Id</td>
-      <td>@Model["vendor"].Name</td>
-      <td>@Model["vendor"].Description</td>
-      <td> - </td>
-    </tr>
+    @foreach (Order order in Model["orders"])
+    {
+      <tr>
+        <td>@order.Id</td>
+        <td>@order.Title</td>
+        <td>@order.Description</td>
+        <td>@order.Price</td>
+        <td>@order.Date</td>
+        <td>@order.Notes</td>
+      </tr>
+    }
+
   </tbody>
 </table>
 
