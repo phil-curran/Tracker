@@ -17,8 +17,6 @@ namespace Tracker.Tests
     [TestMethod]
     public void OrderConstructor_CreatesInstanceOfOrder_Order()
     {
-
-      // string title, string description, int price, string date, string notes     
       string title = "test order";
       string description = "test description";
       int price = 100;
@@ -65,11 +63,15 @@ namespace Tracker.Tests
     public void ClearAllOrders()
     {
       // Arrange
-      //  Order newOrderOne = new Order("test order 1", "test description 1", 100, "01/01/2020", "test notes 1");
+      Order newOrder = new Order("test order 1", "test description 1", 100, "01/01/2020", "test notes 1");
+      List<Order> newList1 = new List<Order> { newOrder };
+      List<Order> newList2 = new List<Order> { };
 
       // Act
+      Order.ClearAll();
 
       // Assert
+      CollectionAssert.AreNotEquivalent(newList1, newList2);
     }
 
     // test Order Find(id)
