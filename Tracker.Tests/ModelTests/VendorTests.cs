@@ -53,5 +53,18 @@ namespace Tracker.Tests
       Assert.AreEqual(result.Name, newVendorOne.Name);
     }
 
+    // test Vendor AddOrder()
+    [TestMethod]
+    public void AddOrderToVendor()
+    {
+      // Arrange
+      Vendor newVendor = new Vendor("test name", "test description");
+      Order newOrder = new Order("test order", "test description", 1, "01/01/2020", "test notes");
+      // Act
+      newVendor.AddOrder(newOrder);
+      // Assert
+      Assert.AreEqual(newVendor.Orders[0].Title, newOrder.Title);
+    }
+
   }
 }
