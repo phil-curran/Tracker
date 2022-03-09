@@ -43,6 +43,23 @@ namespace Tracker.Tests
       CollectionAssert.AreNotEquivalent(newList, result);
     }
 
+    // test List<Order> GetAll()
+    [TestMethod]
+    public void GetAllOrders_EquivalentOrders()
+    {
+      // Arrange
+      Order.ClearAll();
+      Order newOrderOne = new Order("test", "test", 1, "test", "test");
+      Order newOrderTwo = new Order("test", "test", 1, "test", "test");
+      // Act
+      List<Order> newList = new List<Order> { newOrderOne, newOrderTwo };
+      List<Order> result = Order.GetAll();
+      // Assert
+      CollectionAssert.AreEquivalent(newList, result);
+    }
+
+    // string title, string description, int price, string date, string notes    
+
     // test ClearAll()
     [TestMethod]
     public void ClearAllOrders()
