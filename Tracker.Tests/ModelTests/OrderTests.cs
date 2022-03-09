@@ -29,8 +29,42 @@ namespace Tracker.Tests
     }
 
 
+    // test List<Order> GetAll()
+    [TestMethod]
+    public void GetAllOrders_NonEquivalentOrders()
+    {
+      // Arrange
+      Order newOrderOne = new Order("test order 1", "test description 1", 100, "01/01/2020", "test notes 1");
+      Order newOrderTwo = new Order("test order 2", "test description 2", 200, "02/02/2020", "test notes 2");
+      // Act
+      List<Order> newList = new List<Order> { newOrderOne, newOrderTwo };
+      List<Order> result = Order.GetAll();
+      // Assert
+      CollectionAssert.AreNotEquivalent(newList, result);
+    }
 
+    // test ClearAll()
+    [TestMethod]
+    public void ClearAllOrders()
+    {
+      // Arrange
+      //  Order newOrderOne = new Order("test order 1", "test description 1", 100, "01/01/2020", "test notes 1");
 
+      // Act
+
+      // Assert
+    }
+
+    // test Order Find(id)
+    [TestMethod]
+    public void TestName3()
+    {
+      // Arrange
+
+      // Act
+
+      // Assert
+    }
 
   }
 }
